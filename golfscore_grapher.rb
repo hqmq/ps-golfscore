@@ -1,6 +1,6 @@
-require 'sinatra/base'
+require_relative 'config/bootstrap'
 class GolfscoreGrapher < ::Sinatra::Base
   get '/' do
-    "OHAI"
+    JSON.generate(DB[:courses].map(&:name))
   end
 end
