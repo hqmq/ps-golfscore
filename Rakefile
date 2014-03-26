@@ -13,6 +13,13 @@ namespace :import do
       DB[:players] = snapshot['players'].map do |player_snapshot|
         Player.new(player_snapshot)
       end
+
+      DB[:teams] = snapshot['teams'].map do |team_snapshot|
+        players = DB[:players].select{|p| team_snapshot['player_ids'].include?(p.id) }
+        team_snapshot.delete('player_ids')
+        team_snapshot[:players] = players
+        Team.new(team_snapshot)
+      end
     end
   end
 end
