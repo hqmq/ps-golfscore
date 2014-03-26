@@ -7,9 +7,11 @@ namespace :import do
     snapshot = JSON.parse(File.read(args[:snapshot_path]))
     DB.transaction do
       DB[:courses] = snapshot['courses'].map do |course_snapshot|
-        course_snapshot['created_at'] = Time.parse(course_snapshot['created_at'])
-        course_snapshot['updated_at'] = Time.parse(course_snapshot['updated_at'])
         Course.new(course_snapshot)
+      end
+
+      DB[:players] = snapshot['players'].map do |player_snapshot|
+        Player.new(player_snapshot)
       end
     end
   end

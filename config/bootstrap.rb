@@ -2,6 +2,7 @@ require 'bundler/setup'
 require 'virtus'
 require_relative '../lib/golf/course'
 require_relative '../lib/golf/course_catalog'
+require_relative '../lib/golf/player'
 
 require 'sinatra/base'
 require 'json'
