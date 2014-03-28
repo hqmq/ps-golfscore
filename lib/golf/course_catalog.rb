@@ -1,3 +1,5 @@
-class CourseCatalog
-  
+module Golf
+  class CourseCatalog
+    
+  end
 end
