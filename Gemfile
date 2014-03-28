@@ -1,6 +1,7 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
+gem "inflecto", "~> 0.0"
 gem "json", "~> 1.7.5"
 gem "puma", "~> 2.8"
 gem "rake", "~> 10.1"

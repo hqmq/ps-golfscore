@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'virtus'
+require 'inflecto'
 
 $:.unshift File.join(__FILE__, '../../lib')
 require 'golf'
