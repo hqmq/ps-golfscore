@@ -1,9 +1,8 @@
 require 'bundler/setup'
 require 'virtus'
-require_relative '../lib/golf/course'
-require_relative '../lib/golf/course_catalog'
-require_relative '../lib/golf/player'
-require_relative '../lib/golf/team'
+
+$:.unshift File.join(__FILE__, '../../lib')
+require 'golf'
 
 require 'sinatra/base'
 require 'json'

@@ -3,7 +3,7 @@ module Golf
     include Virtus.model
 
     attribute :player, Player
-    attribute :game, Game
+    attribute :game, 'Game'
     attribute :holes, Array[Integer]
   end
 end
