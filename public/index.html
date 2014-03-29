@@ -34,14 +34,16 @@
           <table class="col-md-8">
             <thead>
               <tr>
-                <th class="text-left">Course</th>
                 <th class="text-left">Id</th>
+                <th class="text-left">Course</th>
+                <th class="text-left">Date</th>
               </tr>
             </thead>
             <tbody class="games">
               <tr class="game" ng-repeat="game in recent_games">
+                <td class="id">{{ game.id }}</td>
                 <td class="name">{{ game.course_name }}</td>
-                <td class="played_at">{{ game.id }}</td>
+                <td class="played_at">{{ game.played_at | date:'fullDate' }}</td>
               </tr>
             </tbody>
           </table>

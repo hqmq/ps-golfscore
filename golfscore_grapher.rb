@@ -11,4 +11,9 @@ class GolfscoreGrapher < ::Sinatra::Base
   get '/teams.json' do
     JSON.generate(DB[:teams].map(&:attributes))
   end
+
+  get "/recent_games.json" do
+    games = DB[:games].sort_by(&:played_at).reverse[0..9]
+    JSON.generate(games.map(&:to_flat_hash))
+  end
 end
