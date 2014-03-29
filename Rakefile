@@ -30,7 +30,7 @@ namespace :import do
           Golf::Score.new(:player => player, :holes => holes)
         end
 
-        attrs = game_snapshot.merge("scores" => scores)
+        attrs = game_snapshot.merge("scores" => scores, "course" => course)
         attrs.delete("teams")
         attrs.delete("course_id")
         attrs.delete("num_holes")
