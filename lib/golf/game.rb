@@ -6,7 +6,7 @@ module Golf
     attribute :played_at, Time
     attribute :created_at, Time
     attribute :updated_at, Time
-    attribute :course, Course
+    attribute :course, 'Golf::Course'
     attribute :scores, Array['Golf::Score']
 
     def to_flat_hash

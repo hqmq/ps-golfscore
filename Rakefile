@@ -25,9 +25,12 @@ namespace :import do
       DB[:games] = snapshot['games'].map do |game_snapshot|
         course = DB[:courses].select{|c| c.id == game_snapshot['course_id'].to_i}.first
         scores = game_snapshot['scores'].map do |score_snapshot|
-          player = DB[:players].select{|p| p.id == score_snapshot['player_id'].to_i}.first
+          participant = DB[:players].select{|p| p.id == score_snapshot['player_id'].to_i}.first
+          participant ||= DB[:teams].select{|t| t.id == score_snapshot['player_id'].to_i}.first
           holes = score_snapshot.values_at(*hole_keys).compact
-          Golf::Score.new(:player => player, :holes => holes)
+          score = Golf::Score.new(:participant => participant, :holes => holes)
+          participant.scores << score
+          score
         end
 
         attrs = game_snapshot.merge("scores" => scores, "course" => course)

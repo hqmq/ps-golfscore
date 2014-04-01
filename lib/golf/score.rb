@@ -1,9 +1,9 @@
 module Golf
   class Score
-    include Virtus.model
+    include Virtus.model(:finalize => false)
 
-    attribute :player, Player
-    attribute :game, Game
+    attribute :participant #Player or Team
+    attribute :game, 'Golf::Game'
     attribute :holes, Array[Integer]
   end
 end
