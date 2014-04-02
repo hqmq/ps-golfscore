@@ -1,12 +1,11 @@
 module Golf
   class Team
-    include Virtus.model(:finalize => false)
+    include Virtus.model
 
     attribute :id, Integer
     attribute :name, String
     attribute :created_at, Time
     attribute :updated_at, Time
-    attribute :players, Array['Golf::Player']
-    attribute :scores, Array['Golf::Score']
+    attribute :players, Array[Golf::Player]
   end
 end
